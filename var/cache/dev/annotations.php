@@ -66,6 +66,42 @@ return [[
 '[C]App%5CController%5CMainController' => 1,
 'App%5CController%5CMainController%23index' => 0,
 '[C]App%5CController%5CMainController%23index' => 1,
+'App%5CController%5CMainController%23addArticle' => 2,
+'[C]App%5CController%5CMainController%23addArticle' => 1,
+'App%5CController%5CMainController%23editArticle' => 3,
+'[C]App%5CController%5CMainController%23editArticle' => 1,
+'App%5CController%5CMainController%23deleteAdvert' => 0,
+'[C]App%5CController%5CMainController%23deleteAdvert' => 1,
+'App%5CEntity%5CArticle' => 0,
+'[C]App%5CEntity%5CArticle' => 1,
+'App%5CEntity%5CArticle%23getId' => 0,
+'[C]App%5CEntity%5CArticle%23getId' => 1,
+'App%5CEntity%5CArticle%23getTitle' => 0,
+'[C]App%5CEntity%5CArticle%23getTitle' => 1,
+'App%5CEntity%5CArticle%23setTitle' => 0,
+'[C]App%5CEntity%5CArticle%23setTitle' => 1,
+'App%5CEntity%5CArticle%23getContent' => 0,
+'[C]App%5CEntity%5CArticle%23getContent' => 1,
+'App%5CEntity%5CArticle%23setContent' => 0,
+'[C]App%5CEntity%5CArticle%23setContent' => 1,
+'App%5CEntity%5CArticle%23getCover' => 0,
+'[C]App%5CEntity%5CArticle%23getCover' => 1,
+'App%5CEntity%5CArticle%23setCover' => 0,
+'[C]App%5CEntity%5CArticle%23setCover' => 1,
+'App%5CEntity%5CArticle%23getDateCreated' => 0,
+'[C]App%5CEntity%5CArticle%23getDateCreated' => 1,
+'App%5CEntity%5CArticle%23setDateCreated' => 0,
+'[C]App%5CEntity%5CArticle%23setDateCreated' => 1,
+'App%5CEntity%5CArticle%24id' => 0,
+'[C]App%5CEntity%5CArticle%24id' => 1,
+'App%5CEntity%5CArticle%24title' => 0,
+'[C]App%5CEntity%5CArticle%24title' => 1,
+'App%5CEntity%5CArticle%24content' => 0,
+'[C]App%5CEntity%5CArticle%24content' => 1,
+'App%5CEntity%5CArticle%24cover' => 0,
+'[C]App%5CEntity%5CArticle%24cover' => 1,
+'App%5CEntity%5CArticle%24date_created' => 0,
+'[C]App%5CEntity%5CArticle%24date_created' => 1,
 'Doctrine%5CBundle%5CDoctrineBundle%5CController%5CProfilerController' => 0,
 '[C]Doctrine%5CBundle%5CDoctrineBundle%5CController%5CProfilerController' => 1,
 'Doctrine%5CBundle%5CDoctrineBundle%5CController%5CProfilerController%23__construct' => 0,
@@ -614,6 +650,55 @@ return [[
 ], [
 
 0 => [],
-1 => 1659800751,
+1 => 1659865606,
+2 => static function () {
+    return \Symfony\Component\VarExporter\Internal\Hydrator::hydrate(
+        $o = [
+            clone (\Symfony\Component\VarExporter\Internal\Registry::$prototypes['Symfony\\Component\\Routing\\Annotation\\Route'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Symfony\\Component\\Routing\\Annotation\\Route')),
+        ],
+        null,
+        [
+            'Symfony\\Component\\Routing\\Annotation\\Route' => [
+                'path' => [
+                    '/addarticle',
+                ],
+                'name' => [
+                    'addarticle',
+                ],
+            ],
+        ],
+        [
+            $o[0],
+        ],
+        []
+    );
+},
+3 => static function () {
+    return \Symfony\Component\VarExporter\Internal\Hydrator::hydrate(
+        $o = [
+            clone (\Symfony\Component\VarExporter\Internal\Registry::$prototypes['Symfony\\Component\\Routing\\Annotation\\Route'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Symfony\\Component\\Routing\\Annotation\\Route')),
+        ],
+        null,
+        [
+            'Symfony\\Component\\Routing\\Annotation\\Route' => [
+                'path' => [
+                    '/editarticle/{id}',
+                ],
+                'name' => [
+                    'editarticle',
+                ],
+                'requirements' => [
+                    [
+                        'id' => '[0-9]{1,5}',
+                    ],
+                ],
+            ],
+        ],
+        [
+            $o[0],
+        ],
+        []
+    );
+},
 
 ]];

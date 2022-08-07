@@ -20,14 +20,17 @@ class MainController extends AbstractController
 
 
     #[Route('/', name: 'home')]
-    public function index(): Response
+    public function index(ManagerRegistry $doctrine): Response
     {
-    $test[]="woof";
-    $test[]="woof1";
-    $test[]="woof2";
-    // var_dump($test);
+        $articleRepository = $doctrine->getRepository(Article::class);
+        $allArticle = $articleRepository ->findAllOrderByDate();
+    // $test[]="woof";
+    // $test[]="woof1";
+    // $test[]="woof2";
+    // var_dump($allArticle);
+
         return $this->render('main/index.html.twig', 
-            array('woof'=> $test)
+            array('allArticle'=> $allArticle)
         );
     }
 
@@ -229,10 +232,7 @@ class MainController extends AbstractController
         
     }
 
-        /**
-     * @Route("/deletearticle/{id}", name="api_deletearticle", requirements={"id"="\d+"})
-     */
-    public function deleteAdvert(Request $request, $id,ManagerRegistry $doctrine):Response
+    public function deleteAdvert(Request $request, $id, ManagerRegistry $doctrine):Response
     {
         
         // if(!$this->get('session')->has('account')){
@@ -240,7 +240,7 @@ class MainController extends AbstractController
         // }
 
         // on récupère le repository de Advert (une annonce)
-        $article = $doctrine->getRepository(Article::class)->find($id);
+        $articleRepository = $doctrine->getRepository(Article::class)->find($id);
 
         // if(!$advert){
         //     throw new NotFoundHttpException('pas trouvé');
@@ -250,15 +250,13 @@ class MainController extends AbstractController
         //     throw new AccessDeniedHttpException('pas auteur');
         // }
 
-        //on récupère l'entity manager
+        // on récupère l'entity manager
         $entityManager = $this->getdoctrine()->getManager();
 
         
-        $entityManager->remove($article);
+        $entityManager->remove($articleRepository);
         $entityManager->flush();
        
-
-
         return $this->json(array('delete' => true));
         
     }

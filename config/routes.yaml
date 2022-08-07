@@ -1,3 +1,11 @@
 #index:
 #    path: /
 #    controller: App\Controller\DefaultController::index
+
+delete_article:
+    alias: article
+    path:    /deletearticle/{id}
+    # the controller value has the format 'controller_class::method_name'
+    controller: App\Controller\MainController::deleteAdvert
+    requirements:
+        id: '\d+'

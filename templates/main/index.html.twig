@@ -15,14 +15,15 @@
 </div>
 
 <div class="example-wrapper">
-    <h1>Hello! ✅</h1>
+    <h1>Voici tout les articles. ✅</h1>
 
     This friendly message is coming from:
     <ul>
 
 
-     {% if woof is defined %} {% for woo in woof %}
-        <li> {{ woo }}</li>
+     {% if allArticle is defined %} {% for article in allArticle %}
+        <li> {{ article.title }} {{ article.content }} {{ article.datecreated|date("Y/d/m") }} </li>
+        {# <a href="{{ path('delete_article', {id: article.id}) }}">Effacer {{ article.title }}</a> #}
      {% endfor  %} {% else %}
 
                 <div class="col-12 alert alert-danger" role="alert">

@@ -100,7 +100,7 @@ class __TwigTemplate_cfec1514e7cd901e331a78ecf7bffccc extends Template
 </div>
 
 <div class=\"example-wrapper\">
-    <h1>Hello! ✅</h1>
+    <h1>Voici tout les articles. ✅</h1>
 
     This friendly message is coming from:
     <ul>
@@ -108,24 +108,34 @@ class __TwigTemplate_cfec1514e7cd901e331a78ecf7bffccc extends Template
 
      ";
         // line 24
-        if (array_key_exists("woof", $context)) {
+        if (array_key_exists("allArticle", $context)) {
             echo " ";
             $context['_parent'] = $context;
-            $context['_seq'] = twig_ensure_traversable((isset($context["woof"]) || array_key_exists("woof", $context) ? $context["woof"] : (function () { throw new RuntimeError('Variable "woof" does not exist.', 24, $this->source); })()));
-            foreach ($context['_seq'] as $context["_key"] => $context["woo"]) {
+            $context['_seq'] = twig_ensure_traversable((isset($context["allArticle"]) || array_key_exists("allArticle", $context) ? $context["allArticle"] : (function () { throw new RuntimeError('Variable "allArticle" does not exist.', 24, $this->source); })()));
+            foreach ($context['_seq'] as $context["_key"] => $context["article"]) {
                 // line 25
                 echo "        <li> ";
-                echo twig_escape_filter($this->env, $context["woo"], "html", null, true);
-                echo "</li>
+                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["article"], "title", [], "any", false, false, false, 25), "html", null, true);
+                echo " ";
+                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["article"], "content", [], "any", false, false, false, 25), "html", null, true);
+                echo " ";
+                echo twig_escape_filter($this->env, twig_date_format_filter($this->env, twig_get_attribute($this->env, $this->source, $context["article"], "datecreated", [], "any", false, false, false, 25), "Y/d/m"), "html", null, true);
+                echo " </li>
+        <a href=\"";
+                // line 26
+                echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("deletearticle", ["id" => twig_get_attribute($this->env, $this->source, $context["article"], "id", [], "any", false, false, false, 26)]), "html", null, true);
+                echo "\">";
+                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["article"], "title", [], "any", false, false, false, 26), "html", null, true);
+                echo "Effacer</a>
      ";
             }
             $_parent = $context['_parent'];
-            unset($context['_seq'], $context['_iterated'], $context['_key'], $context['woo'], $context['_parent'], $context['loop']);
+            unset($context['_seq'], $context['_iterated'], $context['_key'], $context['article'], $context['_parent'], $context['loop']);
             $context = array_intersect_key($context, $_parent) + $_parent;
-            // line 26
+            // line 27
             echo " ";
         } else {
-            // line 27
+            // line 28
             echo "
                 <div class=\"col-12 alert alert-danger\" role=\"alert\">
                     Aucune annonce trouvée
@@ -135,7 +145,7 @@ class __TwigTemplate_cfec1514e7cd901e331a78ecf7bffccc extends Template
                 
      ";
         }
-        // line 35
+        // line 36
         echo " 
     </ul>
 </div>
@@ -160,7 +170,7 @@ class __TwigTemplate_cfec1514e7cd901e331a78ecf7bffccc extends Template
 
     public function getDebugInfo()
     {
-        return array (  139 => 35,  129 => 27,  126 => 26,  117 => 25,  111 => 24,  97 => 13,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
+        return array (  149 => 36,  139 => 28,  136 => 27,  126 => 26,  117 => 25,  111 => 24,  97 => 13,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -182,14 +192,15 @@ class __TwigTemplate_cfec1514e7cd901e331a78ecf7bffccc extends Template
 </div>
 
 <div class=\"example-wrapper\">
-    <h1>Hello! ✅</h1>
+    <h1>Voici tout les articles. ✅</h1>
 
     This friendly message is coming from:
     <ul>
 
 
-     {% if woof is defined %} {% for woo in woof %}
-        <li> {{ woo }}</li>
+     {% if allArticle is defined %} {% for article in allArticle %}
+        <li> {{ article.title }} {{ article.content }} {{ article.datecreated|date(\"Y/d/m\") }} </li>
+        <a href=\"{{ path('deletearticle', {id: article.id}) }}\">{{ article.title }}Effacer</a>
      {% endfor  %} {% else %}
 
                 <div class=\"col-12 alert alert-danger\" role=\"alert\">
@@ -203,6 +214,6 @@ class __TwigTemplate_cfec1514e7cd901e331a78ecf7bffccc extends Template
     </ul>
 </div>
 {% endblock %}
-", "main/index.html.twig", "C:\\Users\\MAI\\Desktop\\Workspace\\projetWebGroup\\testProject\\templates\\main\\index.html.twig");
+", "main/index.html.twig", "C:\\Users\\MAI\\Desktop\\Workspace\\projetWebGroup\\projetTest\\projetWebGroup\\templates\\main\\index.html.twig");
     }
 }

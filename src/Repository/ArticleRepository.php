@@ -39,6 +39,24 @@ class ArticleRepository extends ServiceEntityRepository
         }
     }
 
+    
+    /**
+     * @return Article[]
+     */
+    public function findAllOrderByDate(): array
+    {
+        $entityManager = $this->getEntityManager();
+
+        $query = $entityManager->createQuery(
+            'SELECT a
+            FROM App\Entity\Article a
+            ORDER BY a.date_created ASC'
+        );
+
+        // returns an array of Product objects
+        return $query->getResult();
+    }
+    
 //    /**
 //     * @return Article[] Returns an array of Article objects
 //     */
